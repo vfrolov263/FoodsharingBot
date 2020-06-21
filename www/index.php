@@ -20,24 +20,24 @@ function callback_handleEvent() {
 
 	try {
 		switch ($event['type']) {
-			//Подтверждение сервера
-			case CALLBACK_API_EVENT_CONFIRMATION:
-        		_callback_handleConfirmation();
-        		break;
+		//Подтверждение сервера
+		case CALLBACK_API_EVENT_CONFIRMATION:
+        	_callback_handleConfirmation();
+        	break;
 
-      			//Получение нового сообщения
-      			case CALLBACK_API_EVENT_MESSAGE_NEW:
-			_callback_handleMessageNew($event['object']);
-        		break;
+      		//Получение нового сообщения
+      		case CALLBACK_API_EVENT_MESSAGE_NEW:
+		_callback_handleMessageNew($event['object']);
+        	break;
 
-   			//Получение новой новости
-   			case CALLBACK_API_EVENT_WALL_POST_NEW:  //wall_post_new
-			_callback_handleNewPOST($event['object']);
-       			break;
+   		//Получение новой новости
+   		case CALLBACK_API_EVENT_WALL_POST_NEW:  //wall_post_new
+		_callback_handleNewPOST($event['object']);
+       		break;
 
-     			 default:
-      			_callback_okResponse();
-      			break;
+     		 default:
+      		_callback_okResponse();
+      		break;
 		}
 	} catch (Exception $e) {
 		log_error($e);
